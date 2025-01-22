@@ -14,18 +14,30 @@ class PostController {
     });
   };
 
+  formatDate = (date: Date): string => {
+    if (isNaN(date.getTime())) {
+      throw new Error('Invalid date');
+    }
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+  };
+
   getAll = async (req: Request, res: Response) => {
     try {
       const posts = await this.postRepository.find({
         relations: { user: true },
+        order: { createdAt: 'DESC', updatedAt: 'DESC' },
       });
 
       const formattedPosts = posts.map((post) => ({
         id: post.id,
         message: post.message,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
-        user: post.user?.login || null,
+        date: this.formatDate(post.createdAt),
+        user: post.user.login,
       }));
 
       res.status(200).json(formattedPosts);
