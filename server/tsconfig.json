@@ -1,14 +1,25 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "rootDir": "./src",
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "moduleResolution": "bundler",
+
+    "isolatedModules": true,
+    "moduleDetection": "force",
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "rootDir": ".",
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
+    "baseUrl": ".",
+
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -18,6 +29,6 @@
     "typeRoots": ["./node_modules/@types", "./"],
     "types": ["node", "express"]
   },
-  "include": ["src/**/*.ts", "app-data-source.ts"],
+  "include": ["src/**/*.ts", "src/swagger-config copy.js"],
   "exclude": ["node_modules", "dist"]
 }

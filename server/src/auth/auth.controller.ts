@@ -67,14 +67,19 @@ class AuthController {
       });
 
       if (!user) {
-        res.status(400).json({ message: 'Bad login' });
+        res
+          .status(400)
+          .json({ message: 'Неправильный логин', errorCode: 'INVALID_LOGIN' });
         return;
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
-        res.status(400).json({ message: 'Wrong password' });
+        res.status(400).json({
+          message: 'Неправильный пароль',
+          errorCode: 'INVALID_PASSWORD',
+        });
         return;
       }
 
@@ -106,7 +111,10 @@ class AuthController {
       });
 
       if (isExist) {
-        res.status(400).json({ message: 'That username is taken' });
+        res.status(400).json({
+          message: 'Логин занят',
+          errorCode: 'INVALID_LOGIN',
+        });
         return;
       }
 

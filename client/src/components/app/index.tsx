@@ -5,12 +5,17 @@ import muiTheme from '@/assets/style/muiTheme';
 import { ThemeProvider } from '@mui/material';
 import { FC } from 'react';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppRouter } from './AppRouter';
+
+const queryClient = new QueryClient();
 
 const App: FC = () => {
   return (
     <ThemeProvider theme={muiTheme}>
-      <AppRouter />
+      <QueryClientProvider client={queryClient}>
+        <AppRouter />
+      </QueryClientProvider>
     </ThemeProvider>
   );
 };

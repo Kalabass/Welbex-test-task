@@ -1,47 +1,23 @@
-import { AuthModal } from '@/components/authModal';
-import { CreatePostModal } from '@/components/createPostModal';
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Container,
-  Stack,
-  Typography,
-} from '@mui/material';
-import { FC, useState } from 'react';
-import { posts } from './posts.const';
+import { PostCard } from '@/pages/main/postCard';
+
+import { Box, Container, Stack } from '@mui/material';
+import { FC } from 'react';
+import { usePostsQuery } from '../../utils/queries/usePosts.query';
+import { CreatePostButton } from './CreatePostButton';
 
 export const MainPage: FC = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { data } = usePostsQuery();
 
   return (
-    <>
-      <AuthModal />
-      <CreatePostModal isOpen={open} handleClose={handleClose} />
-      <Container sx={{ marginTop: '60px' }}>
-        <Box sx={{ paddingTop: 5 }}>
-          <Button variant='contained' fullWidth onClick={handleOpen}>
-            + Создать пост
-          </Button>
-          <Stack gap={3} marginTop={3}>
-            {posts.map((post) => (
-              <Card sx={{ border: '1px solid #1976d2' }} key={post.id}>
-                <CardContent>{post.message}</CardContent>
-                <CardActions>
-                  <Typography>
-                    {post.date}
-                    {post.author.name}
-                  </Typography>
-                </CardActions>
-              </Card>
-            ))}
-          </Stack>
-        </Box>
-      </Container>
-    </>
+    <Container sx={{ marginTop: '60px' }} maxWidth='md'>
+      <Box sx={{ paddingBlock: 5 }}>
+        <Stack gap={3}>
+          <CreatePostButton />
+          {data?.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </Stack>
+      </Box>
+    </Container>
   );
 };

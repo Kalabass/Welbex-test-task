@@ -1,3 +1,3 @@
 export interface CreatePostDto {
-  message: string;
+  message?: string;
 }
