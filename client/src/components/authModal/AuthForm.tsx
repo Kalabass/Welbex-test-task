@@ -19,7 +19,7 @@ const AuthForm: FC = () => {
     const { response } = error as {
       response?: { data: { errorCode: string; message: string } };
     };
-    console.log(response);
+
     if (response?.data.errorCode === ERROR_CODES.invalidLoginCode)
       setLoginErrorMessage(response.data.message);
     if (response?.data.errorCode === ERROR_CODES.invalidPasswordCode)
