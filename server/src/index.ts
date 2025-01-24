@@ -3,10 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
-import { myDataSource } from './app-data-source';
 import { authRouter } from './auth';
+import { myDataSource } from './config/app-data-source';
+import { specs } from './config/swagger-config';
 import { postRouter } from './post';
-import { specs } from './swagger-config';
 
 dotenv.config();
 

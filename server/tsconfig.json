@@ -1,34 +1,29 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    "moduleResolution": "bundler",
-
-    "isolatedModules": true,
-    "moduleDetection": "force",
-
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "rootDir": ".",
-    "outDir": "./dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-
-    "noImplicitAny": true,
-    "experimentalDecorators": true,
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": false,
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
     "strictNullChecks": false,
-    "typeRoots": ["./node_modules/@types", "./"],
-    "types": ["node", "express"]
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
   },
-  "include": ["src/**/*.ts", "src/swagger-config copy.js"],
+  "include": [
+    "src/**/*.ts",
+    "src/data-source.js",
+    "src/config/app-data-source.ts",
+    "src/config/swagger-config.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

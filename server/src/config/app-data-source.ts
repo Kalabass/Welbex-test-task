@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import path from 'path';
 import { DataSource } from 'typeorm';
 
 dotenv.config();
@@ -10,7 +11,7 @@ const myDataSource = new DataSource({
   username: process.env.TYPEORM_USERNAME,
   password: process.env.TYPEORM_PASSWORD,
   database: process.env.TYPEORM_DATABASE,
-  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+  entities: [path.join(__dirname + '/../**/entities/*.entity{.ts,.js}')],
   logging: true,
   synchronize: true,
 });

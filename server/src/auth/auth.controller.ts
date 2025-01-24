@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { myDataSource } from '../app-data-source';
+import { myDataSource } from '../config/app-data-source';
 import { User } from '../user';
 import { AuthDTO } from './dto/auth-dto';
 

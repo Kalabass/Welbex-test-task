@@ -3,7 +3,7 @@ import fs from 'fs';
 import multer, { FileFilterCallback } from 'multer';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
-import { myDataSource } from '../app-data-source';
+import { myDataSource } from '../config/app-data-source';
 import { Media } from '../media';
 import { CreatePostDto } from './dto/create-post-dto';
 import { UpdatePostDto } from './dto/update-post-dto';
