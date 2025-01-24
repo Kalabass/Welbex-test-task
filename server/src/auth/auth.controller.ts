@@ -35,7 +35,7 @@ class AuthController {
         newPayload,
         process.env.JWT_ACCESS_SECRET,
         {
-          expiresIn: '10m',
+          expiresIn: '1m',
         }
       );
 
