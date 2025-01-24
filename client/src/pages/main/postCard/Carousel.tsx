@@ -14,7 +14,6 @@ const Carousel: FC<{ media: Media[] }> = ({ media }) => {
   };
 
   const baseUrl = import.meta.env.VITE_INSTANCE_BASE_URL;
-  console.log(media);
   return (
     <Slider {...settings}>
       {media.map((item, index) => (

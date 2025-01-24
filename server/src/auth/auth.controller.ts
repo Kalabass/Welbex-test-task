@@ -92,6 +92,7 @@ class AuthController {
       res.cookie('refresh_token', newRefreshToken, {
         httpOnly: true,
         path: '/auth',
+        secure: true,
       });
 
       res
@@ -134,6 +135,7 @@ class AuthController {
       res.cookie('refresh_token', newRefreshToken, {
         httpOnly: true,
         path: '/auth',
+        secure: true,
       });
 
       res.status(200).json({
@@ -176,6 +178,7 @@ class AuthController {
       res.cookie('refresh_token', newRefreshToken, {
         httpOnly: true,
         path: '/auth',
+        secure: true,
       });
 
       res.status(200).json({
