@@ -9,5 +9,7 @@ declare namespace NodeJS {
     TYPEORM_DATABASE: string;
     JWT_ACCESS_SECRET: string;
     JWT_REFRESH_SECRET: string;
+    DOMAIN: string;
+    NODE_ENV: string;
   }
 }

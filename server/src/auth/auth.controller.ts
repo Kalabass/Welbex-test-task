@@ -35,7 +35,7 @@ class AuthController {
         newPayload,
         process.env.JWT_ACCESS_SECRET,
         {
-          expiresIn: '1m',
+          expiresIn: '10m',
         }
       );
 
@@ -91,8 +91,8 @@ class AuthController {
 
       res.cookie('refresh_token', newRefreshToken, {
         httpOnly: true,
-        path: '/auth',
-        secure: true,
+        path: '/',
+        secure: process.env.NODE_ENV !== 'development',
       });
 
       res
@@ -134,8 +134,8 @@ class AuthController {
 
       res.cookie('refresh_token', newRefreshToken, {
         httpOnly: true,
-        path: '/auth',
-        secure: true,
+        path: '/',
+        secure: process.env.NODE_ENV !== 'development',
       });
 
       res.status(200).json({
@@ -177,8 +177,8 @@ class AuthController {
 
       res.cookie('refresh_token', newRefreshToken, {
         httpOnly: true,
-        path: '/auth',
-        secure: true,
+        path: '/',
+        secure: process.env.NODE_ENV !== 'development',
       });
 
       res.status(200).json({
