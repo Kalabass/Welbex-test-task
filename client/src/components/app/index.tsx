@@ -8,7 +8,13 @@ import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppRouter } from './AppRouter';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App: FC = () => {
   return (
